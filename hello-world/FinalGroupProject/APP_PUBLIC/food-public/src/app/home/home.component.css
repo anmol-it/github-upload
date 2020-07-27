@@ -1,0 +1,11 @@
+.imageContainer {
+    width:1700px; 
+    height:auto; 
+    background-color: rgba(0,0,0, 0.3);
+}
+
+#tname{
+    color: #fff;
+    text-align: center;
+    font-size: 150px;
+}

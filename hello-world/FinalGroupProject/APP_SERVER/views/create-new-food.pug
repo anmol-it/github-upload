@@ -1,0 +1,11 @@
+extends layout 
+
+block content
+
+ h1= title
+ form(method='POST' action='')
+  label(for='name') Name:
+  input#name(type='text',placeholder='Enter Name',name = 'name')
+  label(for='type') Type:
+  input#type(type='text',placeholder='Enter Type',name='type')
+  button(type='submit') Submit

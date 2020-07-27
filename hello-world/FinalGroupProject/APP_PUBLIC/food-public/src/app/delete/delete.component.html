@@ -1,0 +1,14 @@
+<div id ="wrapper">
+     <h1>Delete the Recipes you Want</h1>
+     <div  *ngFor="let food of foods">
+     <a class="special"  routerLink="/food/{{food._id}}">{{food.name}}</a>
+     <div class="wrapper">
+         <button class="button" (click)="deleteNewFood(food._id)">Delete</button>
+    </div>
+ </div>
+    
+
+</div>
+
+
+

@@ -1,0 +1,77 @@
+
+    <h1>Update the Recipes you Want</h1>
+    <app-header [content] = "pageContent.header"></app-header> 
+    <div  *ngFor="let food of foods">
+        <div id ="foodname">
+            <a  routerLink="/food/{{food._id}}">{{food.name}}</a>
+        </div>
+        
+        <button id="button" class="{{food.name}}"  (click) ="toggle(food, food.name)">UPDATE</button>
+    </div>
+
+
+
+
+<div  *ngFor="let food of foods">
+    <form *ngIf="food.name===panel1" id="{{food.name}}" [formGroup]="foodForm" (ngSubmit)= "updateNewFood(food._id)">
+        <label for="name">Name of Recipe</label>
+        <input formControlName ="name"   id="name" name="name" required="required">
+        <div *ngIf="foodForm.get('name').hasError('pattern')" class="error">
+            **Recipe Name cannot have numbers or special characters
+        </div>
+        <br>
+        <br>
+      
+        <label for="type">Type</label>
+        <input formControlName ="type"  id="type"  name="type" required="required">
+        <div *ngIf="foodForm.get('type').hasError('pattern')" class="error">
+            **Recipe Type cannot have numbers or special characters
+        </div>
+
+        <br>
+        <br>
+      
+        <label for="releaseDate">Release Date</label>
+        <input type="date" value="" min="2018-01-01" max="2023-12-31" formControlName ="releaseDate" id="releaseDate" name="releaseDate" required="required">
+        
+        <br>
+        <br>
+    
+        <label for="cookName">Cook Name</label>
+        <input formControlName ="cookName" id="cookName"  name="cookName" required="required">
+        <div *ngIf="foodForm.get('cookName').hasError('pattern')" class="error">
+           **CookName cannot include special characters
+        </div>
+        <br>
+        <br>
+       
+        <label for="rating">Rating</label>
+        <input  formControlName="rating" id="rating" name="rating" required="required">
+         <div *ngIf="foodForm.get('rating').hasError('rating')" class="error">
+        **Rating should be between 1-5
+    </div>
+    <br>
+    <br>
+
+    <label for="ingredients">Ingredients</label>
+    <input formControlName ="ingredients"  id="ingredients"  name="ingredients" required="required">
+    <div *ngIf="foodForm.get('ingredients').hasError('pattern')" class="error">
+        **Ingredients cannot have special characters
+    </div>
+       
+        <br>
+        <br>
+        <label for="description">Full Recipe</label>
+        <input  formControlName="description" id="description" name="description" rows="5" cols="40" style="width: 407px; height: 100px;" placeholder=" Enter full Recipe" required="required">
+        <div *ngIf="foodForm.get('description').hasError('pattern')" class="error">
+            *Recipe cannot have special characters
+        </div>
+        <br><br>
+        <div class="wrapper">
+
+        <button class="MeraButton" [disabled]=!foodForm.valid type="submit" >Update</button>
+        </div>
+    </form>
+
+    </div>
+

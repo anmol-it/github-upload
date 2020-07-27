@@ -1,0 +1,25 @@
+
+p{
+    color: #fff;
+    font-size: 24px;
+}
+
+.detail img {
+    position:absolute;
+    right:20%;
+    left: 25%;
+    top:0;
+    }
+
+    .detail .table-div {
+        position:relative; 
+        padding-right:'images-width';
+        }
+#attributes{
+    color: #E50914; ;
+    font-size: 24px;
+      }
+      #detail{
+          width: 70%;
+          margin: auto;
+      }

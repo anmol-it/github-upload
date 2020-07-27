@@ -1,0 +1,10 @@
+<!-- <li *ngFor = "let food of foods">{{ food.name}} {{food.type}} </li> -->
+<div id ="container">
+
+    <div  *ngFor="let food of foods">
+     <button class ="button"> 
+         <a class="special" routerLink="/food/{{food._id}}">{{food.name}}</a>
+     </button>    
+    </div>
+        
+</div>

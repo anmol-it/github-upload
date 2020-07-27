@@ -1,0 +1,60 @@
+<h1>You can add your own Recipe to our website</h1>
+<br>
+
+<form [formGroup]="foodForm" (ngSubmit) ="createNewFood()">
+    <label for="name">Name of Recipe</label>
+    <input  formControlName="name" id="name" name="name" placeholder=" Enter Name of your Dish" required="required">
+    <div *ngIf="foodForm.get('name').hasError('pattern')" class="error">
+        **Recipe Name cannot have numbers or special characters
+    </div>
+    <br>
+    <br>
+    <label for="type">Type</label>
+    <input  formControlName="type" id="type" name="type" placeholder=" Enter Meal Type" required="required">
+    
+    <div *ngIf="foodForm.get('type').hasError('pattern')" class="error">
+        **Type of recipe cannot include numbers or special characters
+    </div>
+    <br>
+    <br>
+    <label for="releaseDate"> Date</label>
+    <input type="date" value=""
+    min="2018-01-01" max="2023-12-31" class="special" formControlName="releaseDate" id="releaseDate" name="releaseDate"  required="required">
+    
+    <br>
+    <br>
+    
+
+    <label for="cookName">Cook Name</label>
+    <input  formControlName="cookName" id="cookName" name="cookName" placeholder=" Enter Name of Cook" required="required">
+    <div *ngIf="foodForm.get('cookName').hasError('pattern')" class="error">
+       **Name of Cook cannot have special characters
+    </div>
+    <br>
+    <br>
+    
+    <label for="rating">Rating</label>
+    <input  formControlName="rating" id="rating" name="rating" placeholder=" Enter Rating" required="required">
+    <div *ngIf="foodForm.get('rating').hasError('rating')" class="error">
+        **Rating should be from 1-5
+    </div>
+    <br>
+    <br>
+    <label for="ingredients">Ingredients</label>
+    <input  formControlName="ingredients" id="ingredients" name="ingredients"   placeholder=" Enter required Ingredients" required="required">
+    <div *ngIf="foodForm.get('ingredients').hasError('pattern')" class="error">
+      
+        **Ingredients Cannot have special characters.
+    </div>
+    <br>
+    <br>
+    <label for="description">Description</label>
+    <input  formControlName="description" id="description" name="description" rows="5" cols="40" style="width: 407px; height: 100px;" placeholder=" Enter full Recipe" required="required">
+    <div *ngIf="foodForm.get('description').hasError('pattern')" class="error">
+        **Special characters are not allowed in full Recipe.
+    </div>
+    <br>
+    <br>
+<div class="wrapper"> 
+    <button class ="MeraButton" [disabled]=!foodForm.valid type="submit">Create</button> </div>
+</form>
